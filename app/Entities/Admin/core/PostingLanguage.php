@@ -15,6 +15,6 @@ class PostingLanguage extends Model
 
     public function posting()
     {
-        return $this->hasOne('App\Entities\Admin\core\Posting','id','id_posing');
+        return $this->hasOne('App\Entities\Admin\core\Posting','id','id_posting');
     }
 }

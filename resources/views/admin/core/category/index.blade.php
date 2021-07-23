@@ -18,7 +18,7 @@
 				<thead class="m-datatable__head">
 					<tr class="m-datatable__row text-center">
                         <td>No</td>
-						<td>Kategori</td>
+						<td class="col-8">Kategori</td>
                         <td>Actions</td>
 					</tr>
 				</thead>
@@ -26,9 +26,9 @@
 					<?php $no =1;?>
 					@foreach($categories as $category)
 					<tr>
-						<td>{{$no}}</td>
-                        <td>{{$category->category}}</td>
-                        <td>
+						<td class="text-center">{{$no}}</td>
+                        <td class="font-weight-bold">  {{$category->category}}  </td>
+                        <td class="text-center">
                         	@if($validasi->update == 1)
                             <a href="{{Route('category.edit',$category->id)}}" class="btn btn-sm btn-primary">
 								<i class="la la-edit"></i>

@@ -102,14 +102,14 @@ class Helper
 
 	public static function title()
 	{
-		$data = 'DERMA EXPRESS';
+		$data = 'Dairycious';
 
 		return $data;
 	}
 
 	public static function logo()
 	{
-		$data = '/assets/images/dermaexpress.png';
+		$data = '/images/logo-dairycious.png';
 
 		return $data;
 	}

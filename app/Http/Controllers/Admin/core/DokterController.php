@@ -85,14 +85,18 @@ class DokterController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $data = [
-            'id_category'   => $request->kategori_dokter,
-            'name'          => $request->name
-        ];
+    {	
+		if($request->file('image')){
+			$data = [
+				'id_category'   => $request->kategori_dokter,
+				'name'          => $request->name
+			];
 
-        $dokter = Dokter::findOrFail($id);
-        $dokter->update($data);
+			$dokter = Dokter::findOrFail($id);
+			$dokter->update($data);
+		}
+
+		$dokter = Dokter::findOrFail($id);
 
         if($request->trigger == 1){
 			foreach ($request->deskripsi as $key => $value) {

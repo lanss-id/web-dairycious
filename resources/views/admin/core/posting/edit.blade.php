@@ -43,6 +43,7 @@
     </div>
     <div class="card-body">
       <div class="m_datatable m-datatable m-datatable--default m-datatable--loaded">
+        
        <form action="{{Route('posting.update', $posting->id)}}" method="post" id="form" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
@@ -52,7 +53,7 @@
                     <div class="kt-avatar__holder" style="width: 100%; height:300px; background-image: url({{ asset('assets/admin/assets/media/posting/') }}/{{$posting->image}})"></div>
                     <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                         <i class="fa fa-pen"></i>
-                        <input type="file" name="image" accept=".png, .jpg, .jpeg">
+                        <input type="file" class="@error ('nama') is-invalid @enderror" name="image" accept=".png, .jpg, .jpeg">
                     </label>
                     <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
                         <i class="fa fa-times"></i>

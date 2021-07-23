@@ -1,5 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\controllers\ProductController;
+use App\Http\controllers\IndexController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,80 +16,108 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/phpinfo', 'Admin\core\TreatmentController@phpinfo');
+
+// Route::get('/phpinfo', 'Admin\core\TreatmentController@phpinfo');
 
 #new front page route
 
-	Route::get('/', 'FrontPage\HomeController')->name('dermaster.home');
-	Route::get('/ajax-produk', 'FrontPage\HomeController@produkListJson');
-	Route::get('/ajax-treatment', 'FrontPage\HomeController@treatmentListJson');
-	Route::get('/ajax-jurnal', 'FrontPage\HomeController@jurnalListJson');
-	Route::get('/ajax-sub-menu', 'FrontPage\HomeController@getSubMenuById');
+	// Route::get('/', 'FrontPage\HomeController')->name('dermaster.home');
+	// Route::get('/ajax-produk', 'FrontPage\HomeController@produkListJson');
+	// Route::get('/ajax-treatment', 'FrontPage\HomeController@treatmentListJson');
+	// Route::get('/ajax-jurnal', 'FrontPage\HomeController@jurnalListJson');
+	// Route::get('/ajax-sub-menu', 'FrontPage\HomeController@getSubMenuById');
 
-	Route::group(['prefix' => 'jurnal'], function(){
-		Route::get('/', 'FrontPage\JurnalController@index')->name('dermaster.jurnal');
-		Route::get('/blog', 'FrontPage\JurnalController@blog')->name('dermaster.jurnal.blog');
-		Route::get('/media', 'FrontPage\JurnalController@blog')->name('dermaster.jurnal.media');
-		Route::get('/show/{id}', 'FrontPage\JurnalController@show')->name('dermaster.jurnal.show');
-	});
+	// Route::group(['prefix' => 'jurnal'], function(){
+	// 	Route::get('/', 'FrontPage\JurnalController@index')->name('dermaster.jurnal');
+	// 	Route::get('/blog', 'FrontPage\JurnalController@blog')->name('dermaster.jurnal.blog');
+	// 	Route::get('/media', 'FrontPage\JurnalController@blog')->name('dermaster.jurnal.media');
+	// 	Route::get('/show/{id}', 'FrontPage\JurnalController@show')->name('dermaster.jurnal.show');
+	// });
 
-	Route::group(['prefix' => 'dokter'], function(){
-		Route::get('/', 'FrontPage\DokterController@index')->name('dermaster.dokter');
-		Route::get('/show/{id}', 'FrontPage\DokterController@show')->name('dermaster.dokter.show');
-	});
+	// Route::group(['prefix' => 'dokter'], function(){
+	// 	Route::get('/', 'FrontPage\DokterController@index')->name('dermaster.dokter');
+	// 	Route::get('/show/{id}', 'FrontPage\DokterController@show')->name('dermaster.dokter.show');
+	// });
 
-	Route::group(['prefix' => 'profile'], function(){
-		Route::get('/', 'FrontPage\ProfileController@index')->name('dermaster.tentang-kami');
-	});
+	// Route::group(['prefix' => 'profile'], function(){
+	// 	Route::get('/', 'FrontPage\ProfileController@index')->name('dermaster.tentang-kami');
+	// });
 
-	Route::group(['prefix' => 'products'], function(){
-		Route::get('/', 'FrontPage\ProductsController@index')->name('dermaster.products');
-		Route::get('/show/{id}', 'FrontPage\ProductsController@show')->name('dermaster.products.show');
-	});
+	// Route::group(['prefix' => 'products'], function(){
+	// 	Route::get('/', 'FrontPage\ProductsController@index')->name('dermaster.products');
+	// 	Route::get('/show/{id}', 'FrontPage\ProductsController@show')->name('dermaster.products.show');
+	// });
 
-	Route::group(['prefix' => 'treatments'], function(){
-		Route::get('/', 'FrontPage\TreatmentsController@index')->name('dermaster.treatments');
-		Route::get('/show/{id}', 'FrontPage\TreatmentsController@show')->name('dermaster.treatments.show');
-	});
+	// Route::group(['prefix' => 'treatments'], function(){
+	// 	Route::get('/', 'FrontPage\TreatmentsController@index')->name('dermaster.treatments');
+	// 	Route::get('/show/{id}', 'FrontPage\TreatmentsController@show')->name('dermaster.treatments.show');
+	// });
 
-	Route::group(['prefix' => 'sosial'], function(){
-		Route::get('/', 'FrontPage\SosialController@index')->name('dermaster.sosial');
-		Route::get('/show/{id}', 'FrontPage\SosialController@show')->name('dermaster.sosial.show');
-	});
+	// Route::group(['prefix' => 'sosial'], function(){
+	// 	Route::get('/', 'FrontPage\SosialController@index')->name('dermaster.sosial');
+	// 	Route::get('/show/{id}', 'FrontPage\SosialController@show')->name('dermaster.sosial.show');
+	// });
 
-	Route::group(['prefix' => 'blog'], function(){
-		Route::get('/', 'FrontPage\BlogController@index')->name('dermaster.blog');
-		Route::get('/show/{id}', 'FrontPage\BlogController@show')->name('dermaster.blog.show');
-	});
+	// Route::group(['prefix' => 'blog'], function(){
+	// 	Route::get('/', 'FrontPage\BlogController@index')->name('dermaster.blog');
+	// 	Route::get('/show/{id}', 'FrontPage\BlogController@show')->name('dermaster.blog.show');
+	// });
 
-	Route::group(['prefix' => 'gallery'], function(){
-		Route::get('/show', 'FrontPage\GalleryController@index')->name('dermaster.gallery');
-	});
+	// Route::group(['prefix' => 'gallery'], function(){
+	// 	Route::get('/show', 'FrontPage\GalleryController@index')->name('dermaster.gallery');
+	// });
 
-	#cek point
-	Route::get('/checkpoint', 'FrontPage\CheckPointController@index')->name('dermaster.check-point');
-	Route::post('/checkpoint-store', 'FrontPage\CheckPointController@store')->name('dermaster.checkpoint.store');
-	Route::get('/checkpoint-report/{idtrx}/{no_hp}', 'FrontPage\CheckPointController@report')->name('dermaster.checkpoint.report');
+	// #cek point
+	// Route::get('/checkpoint', 'FrontPage\CheckPointController@index')->name('dermaster.check-point');
+	// Route::post('/checkpoint-store', 'FrontPage\CheckPointController@store')->name('dermaster.checkpoint.store');
+	// Route::get('/checkpoint-report/{idtrx}/{no_hp}', 'FrontPage\CheckPointController@report')->name('dermaster.checkpoint.report');
 
-	#kontak
-	Route::get('/kontak', 'FrontPage\KontakController@index')->name('dermaster.kontak');
+	// #kontak
+	// Route::get('/kontak', 'FrontPage\KontakController@index')->name('dermaster.kontak');
 
-	#price list
-	Route::get('/price-list', 'FrontPage\PriceListController@index')->name('dermaster.price-list');
+	// #price list
+	// Route::get('/price-list', 'FrontPage\PriceListController@index')->name('dermaster.price-list');
 
-	#feedback
-	Route::get('/feedback/{no}', 'FrontPage\FeedbackController@index')->name('dermaster.feedback');
+	// #feedback
+	// Route::get('/feedback/{no}', 'FrontPage\FeedbackController@index')->name('dermaster.feedback');
 
-	#kemitraan
-	Route::get('/kemitraan', 'FrontPage\KemitraanController@index')->name('dermaster.kemitraan');
-	Route::post('/store-kemitraan', 'FrontPage\KemitraanController@store')->name('dermaster.kemitraan.store');
+	// #kemitraan
+	// Route::get('/kemitraan', 'FrontPage\KemitraanController@index')->name('dermaster.kemitraan');
+	// Route::post('/store-kemitraan', 'FrontPage\KemitraanController@store')->name('dermaster.kemitraan.store');
 #end new front page route
+
+Route::get( '/', [IndexController::class, 'index']);
+
+Route::get( '/reseller', [PagesController::class, 'reseller']);
+
+Route::get( '/cara-order', [PagesController::class, 'caraOrder']);
+
+Route::get('/privacy-policy', [PagesController::class, 'privacyPolicy']);
+
+Route::get('/contact', [PagesController::class, 'contact']);
+
+Route::get('/faq', [PagesController::class, 'faq']);
+
+// produk route
+
+Route::get('/product', 'ProductController@index');
+
+Route::get('/product/{id}', 'ProductController@show');
+
+//articles route
+
+
+Route::get('/articles', 'ArticlesController@index');
+
+Route::get('/articles/{article}', 'ArticlesController@show');
+
+
 
 #language route
 
-Route::group(['prefix' => 'language'], function(){
-	Route::get('/switch/{id}', 'Language\SwitchLanguageController')->name('language.switch');
-});
+// Route::group(['prefix' => 'language'], function(){
+// 	Route::get('/switch/{id}', 'Language\SwitchLanguageController')->name('language.switch');
+// });
 
 #end language route
 
@@ -241,6 +275,14 @@ Route::group(['prefix' => 'language'], function(){
 		'prefix' => 'storeMedia'
 	], function(){
 		Route::post('/', 'Admin\core\MediaController')->name('media.store');
+	});
+
+	#theme
+	Route::group([
+		'middleware' => 'middleware',
+		'prefix' => 'theme'
+	], function(){
+		Route::get('/', 'Admin\core\ThemeController@index')->name('theme.index');
 	});
 
 	#category
