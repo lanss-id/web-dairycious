@@ -162,7 +162,7 @@
                                         @foreach ($reseller as $q => $re)
                                         <div class="box-order">
                                             <div class="step-no">{{$q+1}}</div>
-                                                <p class="text-step">{!! $re->content !!}</p>
+                                                <span class="text-step">{!! $re->content !!}</span>
                                         </div>
                                         @endforeach
                                     </div>

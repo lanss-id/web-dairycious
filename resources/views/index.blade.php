@@ -123,7 +123,7 @@
     <!--End Main Slider-->
     
     <!-- Services Section Six -->
-    {{-- <section class="services-section-six">
+    <section class="services-section-six">
         <div class="auto-container">
             <div class="sec-title text-center">
                 <div class="divider"><img src="images/icons/divider_12.png" alt=""></div>
@@ -143,7 +143,7 @@
                 @endforeach 
             </div>
         </div>
-    </section> --}}
+    </section>
     <!--End Services Section Six -->
 
     <!-- Call to Action Two -->

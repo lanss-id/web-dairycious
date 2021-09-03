@@ -20,7 +20,7 @@ class ProductController extends Controller
                 ->join('category', 'category.id', '=', 'produk.id_category')
                 ->where('id_category', 68)
                 ->where ('produklanguage.id_language', 1)
-                ->paginate(6);
+                ->paginate(3);
 
         return view ('produk.index', compact('produk'));
     }

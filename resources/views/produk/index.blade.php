@@ -139,7 +139,7 @@
                                 <h3><a href= "/product/{{$article->id_produk}}">{{ $article->judul }} </a></h3>
                                 <ul class="post-info">
                                     <li><span class="icon fa fa-heart"></span> 5 Likes</li>
-                                    <li><span class="icon fa fa-bookmark"></span> <a href="#">{{$article->category}}</a></li>
+                                    <li><span class="icon fa fa-bookmark"></span> <a href="/product/{{$article->id_produk}}">{{$article->category}}</a></li>
                                 </ul>
                             </div>
                         </div>

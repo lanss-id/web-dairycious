@@ -141,7 +141,7 @@
                                 <div class="auto-container">
                                     <ul class="post-info">
                                         <li><span class="icon fa fa-heart"></span> 5 Likes</li>
-                                        <li><span class="icon fa fa-bookmark"></span><a href="#">{{$art->category}}</a></li>
+                                        <li><span class="icon fa fa-bookmark"></span><a href="/articles/{{$art->id_posting}}">{{$art->category}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="text container"> 
